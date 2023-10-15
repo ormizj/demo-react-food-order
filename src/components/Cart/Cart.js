@@ -36,7 +36,7 @@ const Cart = (props) => {
       {cartItems}
       <div className={styles["total"]}>
         <span>Total Amount</span>
-        <span>{cartCtx.totalAmount}</span>
+        <span>{totalAmount}</span>
       </div>
       <div className={styles["actions"]}>
         <button className={styles["button--alt"]} onClick={props.onHideCart}>
