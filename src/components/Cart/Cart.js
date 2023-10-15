@@ -10,9 +10,13 @@ const Cart = (props) => {
   const totalAmount = `$${cartCtx.totalAmount.toFixed(2)}`;
   const hasItems = cartCtx.items.length > 0;
 
-  const cartItemRemoveHandler = (id) => {};
+  const cartItemRemoveHandler = (id) => {
+    cartCtx.removeItem(id);
+  };
 
-  const cartItemAddHandler = (item) => {};
+  const cartItemAddHandler = (item) => {
+    cartCtx.addItem({ ...item, amount: 1 });
+  };
 
   const cartItems = (
     <ul className={styles["cart-items"]}>
@@ -23,6 +27,7 @@ const Cart = (props) => {
             name={item.name}
             amount={item.amount}
             price={item.price}
+            // binding the item instead of calling it from the child component (not best practice/recommended , just for demo purposes)
             onRemove={cartItemRemoveHandler.bind(null, item.id)}
             onAdd={cartItemAddHandler.bind(null, item)}
           />
